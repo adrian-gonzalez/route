@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.route"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:required="true" android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:required="true" android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:required="true" android:name="android.permission.INTERNET"/>
+    <uses-permission android:required="true" android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-sdk tools:overrideLibrary="android.support.v7.appcompat, android.support.v4" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/route_blue_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        >
+
+        <activity android:name=".getNearbyNetworks" android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".authenticateNetwork" android:configChanges="orientation|screenSize"
+            android:parentActivityName=".getNearbyNetworks" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".getNearbyNetworks" />
+        </activity>
+
+    </application>
+
+</manifest>
